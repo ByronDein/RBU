@@ -138,8 +138,8 @@ const DeveloperList = () => {
     };
 
     const handleAssignSuccess = () => {
-        fetchDevelopers(); 
-        loadProjectCounts(); 
+        fetchDevelopers();
+        loadProjectCounts();
         setShowAssignModal(false);
         setSelectedDeveloper(null);
     };
@@ -201,8 +201,8 @@ const DeveloperList = () => {
                         ))
                     ) : (
                         <div className="text-center py-8 text-muted-foreground">
-                            {developers.length === 0 
-                                ? "No se encontraron desarrolladores." 
+                            {developers.length === 0
+                                ? "No se encontraron desarrolladores."
                                 : "No se encontraron desarrolladores que coincidan con los filtros seleccionados."
                             }
                         </div>
@@ -279,10 +279,11 @@ const DeveloperList = () => {
 
                                                         <DropdownMenuItem
                                                             onClick={() => handleAssignProject(dev)}
-                                                            className="text-amber-600 hover:text-amber-700 hover:bg-amber-50 dark:hover:bg-amber-950"
-                                                        >
+                                                            className="text-amber-600 hover:text-amber-700 hover:bg-amber-50 dark:hover:bg-amber-950 "
+                                                            disabled={!dev.registroActivo}
+                                                        >   
                                                             <Folder className="mr-2 h-4 w-4" />
-                                                            Asignar Proyecto
+                                                            {dev.registroActivo ? 'Asignar Proyecto' : 'Usuario inactivo'}
                                                         </DropdownMenuItem>
                                                         <DropdownMenuSeparator />
 
@@ -313,8 +314,8 @@ const DeveloperList = () => {
                         ) : (
                             <TableRow>
                                 <TableCell colSpan={8} className="text-center py-8 text-muted-foreground">
-                                    {developers.length === 0 
-                                        ? "No se encontraron desarrolladores." 
+                                    {developers.length === 0
+                                        ? "No se encontraron desarrolladores."
                                         : "No se encontraron desarrolladores que coincidan con los filtros seleccionados."
                                     }
                                 </TableCell>

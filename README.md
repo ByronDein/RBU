@@ -138,4 +138,3 @@ Usuario → Componente → Hook → Servicio → API
 - **Detalle**: Vista completa de información del proyecto
 
 
-```

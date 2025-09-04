@@ -1,11 +1,11 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-    Mail, 
-    Calendar, 
-    Award, 
-    Briefcase, 
+import {
+    Mail,
+    Calendar,
+    Award,
+    Briefcase,
     MoreVertical,
     Edit,
     FolderCheck,
@@ -50,7 +50,7 @@ const DeveloperCard = ({
             <CardHeader className="pb-3">
                 <div className="flex items-start justify-between">
                     <div className="flex items-center gap-3">
-                       
+
                         <div>
                             <h3 className="font-semibold text-lg text-start">{developer.nombre}</h3>
                             <p className="text-sm text-muted-foreground text-start">RUT: {developer.rut}</p>
@@ -73,17 +73,22 @@ const DeveloperCard = ({
                                         <Edit className="mr-2 h-4 w-4" />
                                         Editar
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem onClick={() => onViewDetails(developer.codigoDesarrollador)}>
+                                    <DropdownMenuItem
+                                        onClick={() => onViewDetails(developer.codigoDesarrollador)}
+                                    >
                                         <FolderCheck className="mr-2 h-4 w-4" />
                                         Ver Detalles
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem onClick={() => onAssignProject(developer)}>
+                                    <DropdownMenuItem
+                                        disabled={!developer.registroActivo}
+                                        onClick={() => onAssignProject(developer)}
+                                    >
                                         <Folder className="mr-2 h-4 w-4" />
-                                        Asignar Proyecto
+                                        {developer.registroActivo ? 'Asignar Proyecto' : 'Usuario inactivo'}
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     {developer.registroActivo ? (
-                                        <DropdownMenuItem 
+                                        <DropdownMenuItem
                                             onClick={() => onDelete(developer.codigoDesarrollador)}
                                             className="text-red-600"
                                         >
@@ -91,7 +96,7 @@ const DeveloperCard = ({
                                             Eliminar
                                         </DropdownMenuItem>
                                     ) : (
-                                        <DropdownMenuItem 
+                                        <DropdownMenuItem
                                             onClick={() => onReactivate(developer.codigoDesarrollador)}
                                             className="text-green-600"
                                         >
@@ -112,13 +117,13 @@ const DeveloperCard = ({
                         <Mail className="h-4 w-4 text-muted-foreground" />
                         <span className="truncate">{developer.correoElectronico}</span>
                     </div>
-                    
+
                     {/* Fecha de contratación */}
                     <div className="flex items-center gap-2 text-sm">
                         <Calendar className="h-4 w-4 text-muted-foreground" />
                         <span>Contratado: {new Date(developer.fechaContratacion).toLocaleDateString('es-ES')}</span>
                     </div>
-                    
+
                     {/* Experiencia y proyectos */}
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-2 text-sm">
