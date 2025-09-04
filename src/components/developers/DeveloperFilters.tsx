@@ -53,7 +53,6 @@ const DeveloperFiltersComponent = ({ filters, onFiltersChange, onClearFilters }:
             filters.projectsMin !== null ||
             filters.projectsMax !== null;
     };
-
     return (
         <Card className="mb-4">
             <CardHeader className="pb-3">
