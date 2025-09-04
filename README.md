@@ -124,7 +124,7 @@ Usuario → Componente → Hook → Servicio → API
 
 ### Desarrolladores
 - **Lista**: Visualización con filtros por tecnología y años de experiencia
-- **Crear**: Formulario con validación (nombre, tecnologías, años experiencia)
+- **Crear**: Formulario con validación (nombre, tecnologías, años experiencia), el crear usuario no me dejaba crear usuarios con 0 años de experiencia por lo que en ves de dejarlo en 0 lo puse en 1 como minimo
 - **Editar**: Modificación de datos existentes
 - **Eliminar**: Eliminación con confirmación
 - **Detalle**: Vista completa de información del desarrollador
