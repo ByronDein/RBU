@@ -67,11 +67,11 @@ const AssignProjectModal: React.FC<AssignProjectModalProps> = ({
         try {
             setAssigning(projectId);
             const project = projects.find(p => p.codigoProyecto === projectId);
-            const response = await assignDeveloperToProject(developer.codigoDesarrollador, projectId);
-            
+            await assignDeveloperToProject(developer.codigoDesarrollador, projectId);
+
             toast.success(`${developer.nombre} asignado al proyecto "${project?.nombre}" con éxito`);
-            
-            await loadAssignedProjects(); 
+
+            await loadAssignedProjects();
             onSuccess?.();
         } catch (error) {
             console.error('Error assigning project:', error);
@@ -86,10 +86,10 @@ const AssignProjectModal: React.FC<AssignProjectModalProps> = ({
             setUnassigning(projectId);
             const project = projects.find(p => p.codigoProyecto === projectId);
             await unassignDeveloperFromProject(developer.codigoDesarrollador, projectId);
-            
+
             toast.success(`${developer.nombre} desasignado del proyecto "${project?.nombre}" con éxito`);
-            
-            await loadAssignedProjects(); 
+
+            await loadAssignedProjects();
             onSuccess?.();
         } catch (error) {
             console.error('Error unassigning project:', error);
@@ -101,7 +101,7 @@ const AssignProjectModal: React.FC<AssignProjectModalProps> = ({
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent 
+            <DialogContent
                 className="!max-w-none !w-[90vw] md:!w-[60vw]  max-h-[80vh] overflow-y-auto"
                 style={{ maxWidth: '60vw', width: '60vw' }}
             >
@@ -135,7 +135,7 @@ const AssignProjectModal: React.FC<AssignProjectModalProps> = ({
                     {/* Lista única de proyectos */}
                     <div>
                         <h3 className="text-lg font-medium mb-4">Proyectos</h3>
-                        
+
                         {projectsLoading || loadingAssigned ? (
                             <div className="text-center py-8 text-muted-foreground">
                                 Cargando proyectos...
@@ -145,10 +145,10 @@ const AssignProjectModal: React.FC<AssignProjectModalProps> = ({
                                 {activeProjects.map((project) => {
                                     const isAssigned = isProjectAssigned(project.codigoProyecto);
                                     const isLoading = assigning === project.codigoProyecto || unassigning === project.codigoProyecto;
-                                    
+
                                     return (
-                                        <Card 
-                                            key={project.codigoProyecto} 
+                                        <Card
+                                            key={project.codigoProyecto}
                                             className={`transition-colors hover:bg-muted/50 ${isAssigned ? 'border-blue-200 bg-blue-50/30' : ''}`}
                                         >
                                             <CardContent className="p-4">
@@ -163,7 +163,7 @@ const AssignProjectModal: React.FC<AssignProjectModalProps> = ({
                                                                 <strong>Término:</strong> {new Date(project.fechaTermino).toLocaleDateString()}
                                                             </p>
                                                         </div>
-                                                        <Badge 
+                                                        <Badge
                                                             variant={isAssigned ? 'default' : 'secondary'}
                                                             className={`mt-2 ${isAssigned ? 'bg-blue-100 text-blue-800' : ''}`}
                                                         >
@@ -177,8 +177,8 @@ const AssignProjectModal: React.FC<AssignProjectModalProps> = ({
                                                         disabled={isLoading}
                                                         className="ml-4"
                                                     >
-                                                        {isLoading 
-                                                            ? (isAssigned ? 'Desasignando...' : 'Asignando...') 
+                                                        {isLoading
+                                                            ? (isAssigned ? 'Desasignando...' : 'Asignando...')
                                                             : (isAssigned ? 'Desasignar' : 'Asignar')
                                                         }
                                                     </Button>

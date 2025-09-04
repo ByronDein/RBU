@@ -12,7 +12,6 @@ import {
     useSidebar,
 } from "@/components/ui/sidebar"
 import { Users, FolderOpen, Home, X } from "lucide-react"
-import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom"
 
 const items = [
@@ -35,7 +34,7 @@ const items = [
 
 export function AppSidebar() {
     const location = useLocation();
-    const { toggleSidebar, setOpen } = useSidebar()
+    const { toggleSidebar } = useSidebar()
     // const closeSidebarOnMobileOnChangePath = () => {
     //     if (window.innerWidth < 1024) {
     //         setOpen(false)
