@@ -121,16 +121,18 @@ const DeveloperDetail: React.FC = () => {
                         <Button
                             onClick={() => setShowAssignModal(true)}
                             className="flex items-center gap-2"
+                            disabled={!developer.registroActivo}
                         >
                             <UserPlus className="h-4 w-4" />
-                            Asignar Proyecto
+                            {developer.registroActivo ? 'Asignar Proyecto' : 'Usuario inactivo'}
+
                         </Button>
                     </div>
                 </CardHeader>
                 <CardContent>
-                   {projectsByDeveloper.length === 0 ? (
+                    {projectsByDeveloper.length === 0 ? (
                         <p className="text-muted-foreground">No hay proyectos asignados a este desarrollador.</p>
-                    ) : (   
+                    ) : (
                         <div className="space-y-3">
                             {projectsByDeveloper.map((project) => (
                                 <Card key={project.codigoProyecto} className="transition-colors hover:bg-muted/50">
@@ -160,7 +162,7 @@ const DeveloperDetail: React.FC = () => {
                             ))}
                         </div>
                     )}
-                    
+
                 </CardContent>
             </Card>
 
