@@ -140,8 +140,11 @@ const DeveloperFiltersComponent = ({ filters, onFiltersChange, onClearFilters }:
                         </div>
 
                         {/* Estado */}
-                        <div className="space-y-2">
-                            <Label>Estado</Label>
+                        <div className="space-y-1">
+
+                            <Label>Estados</Label>
+                            <Label className="text-xs text-muted-foreground">estado</Label>
+
                             <select
                                 value={filters.status}
                                 onChange={(e) => updateFilter("status", e.target.value as "all" | "active" | "inactive")}
