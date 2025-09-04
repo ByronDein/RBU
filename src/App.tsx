@@ -3,17 +3,15 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layouts/Layout';
 import { CreateDeveloper, DeveloperDetailPage, DevelopersPage, EditDeveloper } from './pages/developer/index'
-import ProjectsPage from './pages/project/ProjectsPage';
-import CreateProject from './pages/project/CreateProject';
-import EditProject from './pages/project/EditProject';
-import ProjectDetail from './pages/project/ProjectDetail';
+import { CreateProject, EditProject, ProjectDetail, ProjectsPage } from './pages/project/index';
+import HomePage from './pages/home/HomePage';
 
 const App: React.FC = () => {
   return (
     <Router>
       <Layout>
         <Routes>
-          {/* <Route path="/" element={<HomePage />} /> */}
+          <Route path="/" element={<HomePage />} />
           <Route path="/developers" element={<DevelopersPage />} />
           <Route path="/developers/create" element={<CreateDeveloper />} />
           <Route path="/developers/:id/edit" element={<EditDeveloper />} />

@@ -35,15 +35,6 @@ const items = [
 export function AppSidebar() {
     const location = useLocation();
     const { toggleSidebar } = useSidebar()
-    // const closeSidebarOnMobileOnChangePath = () => {
-    //     if (window.innerWidth < 1024) {
-    //         setOpen(false)
-    //     }
-    // }
-    // useEffect(() => {
-
-    //     closeSidebarOnMobileOnChangePath();
-    // }, [location.pathname, setOpen])
 
 
     return (
@@ -88,7 +79,7 @@ export function AppSidebar() {
 
                 <SidebarFooter>
                     <div className="p-4 text-xs text-muted-foreground">
-                        © 2024 RBU Dashboard
+                        © 2025 RBU Dashboard
                     </div>
                 </SidebarFooter>
             </Sidebar>
