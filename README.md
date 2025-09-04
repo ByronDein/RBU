@@ -1,69 +1,140 @@
-# React + TypeScript + Vite
+# RBU - Sistema de Gestión de Desarrolladores y Proyectos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web para la gestión de desarrolladores y proyectos, construida con React , TypeScript y Vite.
 
-Currently, two official plugins are available:
+## Características Implementadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- CRUD completo de desarrolladores (crear, listar, editar, eliminar)
+- CRUD completo de proyectos (crear, listar, editar, eliminar)
+- Sistema de filtros para desarrolladores y proyectos
+- Formularios con validación usando React Hook Form + Zod
+- Diseño responsivo con ShadCN/UI y TailwindCSS
+- Notificaciones con Sonner Toast
 
-## Expanding the ESLint configuration
+## Instalación y Ejecución
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerrequisitos
+- Node.js 18+
+- npm
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Pasos
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/ByronDein/RBU.git
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. **Navegar al directorio del proyecto**
+   ```bash
+   cd RBU
+   ```
+
+3. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
+
+4. **Configurar variables de entorno**
+   Crear archivo `.env` en la raíz:
+   ```
+   VITE_API_URL=ejemplo-url.cl
+   VITE_BEARER_TOKEN=tu-token
+   ```
+
+5. **Ejecutar aplicación**
+   ```bash
+   npm run dev
+   ```
+
+6. **Abrir navegador**
+   ```
+   http://localhost:5173
+   ```
+
+### Comandos Disponibles
+
+```bash
+npm run dev      # Servidor de desarrollo
+npm run build    # Build para producción
+npm run preview  # Preview del build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Arquitectura del Proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Estructura de Carpetas
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/          # Componentes de la interfaz
+│   ├── ui/             # Componentes base (botones, inputs, etc)
+│   ├── developers/     # Componentes de desarrolladores
+│   ├── projects/       # Componentes de proyectos
+│   └── layouts/        # Layout principal
+├── hooks/              # Custom hooks para lógica de negocio
+├── services/           # Servicios para comunicación con API
+├── types/              # Definiciones de tipos TypeScript
+└── pages/              # Páginas de la aplicación
+```
+
+### Descripción de Capas
+
+#### **Components**
+- **UI**: Componentes reutilizables basados en ShadCN/UI
+- **Developers**: Formularios, listas y cards de desarrolladores
+- **Projects**: Formularios, listas y cards de proyectos
+- **Layouts**: Layout principal con sidebar
+
+#### **Hooks**
+- `use-developers.ts`: Manejo de estado y operaciones CRUD de desarrolladores
+- `use-project.ts`: Manejo de estado y operaciones CRUD de proyectos  
+- `use-mobile.ts`: Detección de dispositivos móviles
+
+#### **Services**
+- `api.service.ts`: Cliente HTTP base con configuración de Axios
+- `developer.service.ts`: Endpoints específicos de desarrolladores
+- `project.service.ts`: Endpoints específicos de proyectos
+
+#### **Types**
+- `developer.types.ts`: Interfaces y tipos de desarrolladores
+- `project.types.ts`: Interfaces y tipos de proyectos
+- `api.types.ts`: Tipos para respuestas de API
+
+### Stack Tecnológico Utilizado
+
+- **React ** - Framework frontend
+- **TypeScript** - Tipado estático
+- **Vite** - Build tool y dev server
+- **ShadCN/UI** - Sistema de componentes
+- **TailwindCSS** - Framework CSS
+- **React Hook Form** - Manejo de formularios
+- **Zod** - Validación de esquemas
+- **Axios** - Cliente HTTP
+- **React Router** - Enrutamiento
+- **Sonner** - Notificaciones toast
+
+### Flujo de la Aplicación
+
+```
+Usuario → Componente → Hook → Servicio → API
+           ↓
+   Notificación ← Estado ← Respuesta
+```
+
+## Funcionalidades por Módulo
+
+### Desarrolladores
+- **Lista**: Visualización con filtros por tecnología y años de experiencia
+- **Crear**: Formulario con validación (nombre, tecnologías, años experiencia)
+- **Editar**: Modificación de datos existentes
+- **Eliminar**: Eliminación con confirmación
+- **Detalle**: Vista completa de información del desarrollador
+
+### Proyectos
+- **Lista**: Visualización con filtros por estado y tecnología
+- **Crear**: Formulario con validación (nombre, descripción, tecnologías, estado)
+- **Editar**: Modificación de datos existentes
+- **Eliminar**: Eliminación con confirmación
+- **Detalle**: Vista completa de información del proyecto
+- **Asignar Desarrolladores**: Modal para asignar desarrolladores al proyecto
+
 ```

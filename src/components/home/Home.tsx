@@ -4,7 +4,6 @@ import { Users, FolderOpen, Calendar, BarChart3 } from 'lucide-react'
 const Home = () => {
     return (
         <div className="space-y-6">
-            {/* Header de Bienvenida */}
             <div className="text-center space-y-2">
                 <h1 className="text-3xl font-bold text-gray-900">
                     Bienvenido al Sistema de Mantenimiento
@@ -14,7 +13,6 @@ const Home = () => {
                 </p>
             </div>
 
-            {/* Descripción */}
             <Card className="max-w-4xl mx-auto">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
@@ -31,7 +29,6 @@ const Home = () => {
                 </CardContent>
             </Card>
 
-            {/* Cards de funcionalidades */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 <Card className="hover:shadow-lg transition-shadow">
                     <CardHeader>
@@ -64,7 +61,6 @@ const Home = () => {
                 </Card>
             </div>
 
-            {/* Funcionalidades principales */}
             <Card className="max-w-4xl mx-auto">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
