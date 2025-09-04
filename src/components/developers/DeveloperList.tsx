@@ -8,6 +8,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { Button } from "../ui/button";
+import { formatLocalDate } from "@/lib/utils";
 import { useDevelopers } from "@/hooks/use-developers";
 import { useNavigate } from "react-router-dom";
 import { Delete, Edit, Folder, FolderCheck, Plus, Shield } from "lucide-react";
@@ -233,7 +234,7 @@ const DeveloperList = () => {
                                     <TableCell className="font-medium">{dev.nombre}</TableCell>
                                     <TableCell>{dev.rut}</TableCell>
                                     <TableCell>{dev.correoElectronico}</TableCell>
-                                    <TableCell>{new Date(dev.fechaContratacion).toLocaleDateString()}</TableCell>
+                                    <TableCell>{formatLocalDate(dev.fechaContratacion)}</TableCell>
                                     <TableCell>{dev.aniosExperiencia} años</TableCell>
                                     <TableCell className="text-center">
                                         {loadingCounts ? (

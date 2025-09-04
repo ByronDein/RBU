@@ -4,6 +4,7 @@ import { ArrowLeft, Edit, UserPlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { formatLocalDate } from '@/lib/utils';
 import { useDevelopers } from '@/hooks/use-developers';
 import AssignProjectModal from '@/components/developers/AssignProjectModal';
 import type { Developer } from '@/types/developer.types';
@@ -104,7 +105,7 @@ const DeveloperDetail: React.FC = () => {
                         </div>
                         <div>
                             <h3 className="font-medium text-sm text-muted-foreground">Fecha de Contratación</h3>
-                            <p className="text-base">{new Date(developer.fechaContratacion).toLocaleDateString()}</p>
+                            <p className="text-base">{formatLocalDate(developer.fechaContratacion)}</p>
                         </div>
                         <div>
                             <h3 className="font-medium text-sm text-muted-foreground">Años de Experiencia</h3>
@@ -142,10 +143,10 @@ const DeveloperDetail: React.FC = () => {
                                                 <h4 className="font-medium text-base">{project.nombre}</h4>
                                                 <div className="text-sm text-muted-foreground mt-1 space-y-1">
                                                     <p>
-                                                        <strong>Inicio:</strong> {new Date(project.fechaInicio).toLocaleDateString()}
+                                                        <strong>Inicio:</strong> {formatLocalDate(project.fechaInicio)}
                                                     </p>
                                                     <p>
-                                                        <strong>Término:</strong> {new Date(project.fechaTermino).toLocaleDateString()}
+                                                        <strong>Término:</strong> {formatLocalDate(project.fechaTermino)}
                                                     </p>
                                                 </div>
                                                 <Badge

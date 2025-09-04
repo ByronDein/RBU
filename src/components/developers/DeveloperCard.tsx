@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { formatLocalDate } from "@/lib/utils";
 import {
     Mail,
     Calendar,
@@ -121,7 +122,7 @@ const DeveloperCard = ({
                     {/* Fecha de contratación */}
                     <div className="flex items-center gap-2 text-sm">
                         <Calendar className="h-4 w-4 text-muted-foreground" />
-                        <span>Contratado: {new Date(developer.fechaContratacion).toLocaleDateString('es-ES')}</span>
+                        <span>Contratado: {formatLocalDate(developer.fechaContratacion)}</span>
                     </div>
 
                     {/* Experiencia y proyectos */}

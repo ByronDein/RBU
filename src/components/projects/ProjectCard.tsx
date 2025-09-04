@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { formatLocalDate } from "@/lib/utils";
 import { 
     Calendar, 
     CalendarDays,
@@ -101,13 +102,13 @@ const ProjectCard = ({
                     {/* Fecha de inicio */}
                     <div className="flex items-center gap-2 text-sm">
                         <Calendar className="h-4 w-4 text-muted-foreground" />
-                        <span>Inicio: {new Date(project.fechaInicio).toLocaleDateString('es-ES')}</span>
+                        <span>Inicio: {formatLocalDate(project.fechaInicio)}</span>
                     </div>
                     
                     {/* Fecha de término */}
                     <div className="flex items-center gap-2 text-sm">
                         <CalendarDays className="h-4 w-4 text-muted-foreground" />
-                        <span>Término: {new Date(project.fechaTermino).toLocaleDateString('es-ES')}</span>
+                        <span>Término: {formatLocalDate(project.fechaTermino)}</span>
                     </div>
                     
                     {/* Desarrolladores asignados */}

@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Calendar, User, Users, Briefcase } from "lucide-react";
+import { formatLocalDate } from "@/lib/utils";
 import { projectService } from "@/services/project.service";
 import type { Project } from "@/types/project.types";
 import type { Developer } from "@/types/developer.types";
@@ -106,7 +107,7 @@ const ProjectDetail = () => {
                             <label className="text-sm font-medium text-muted-foreground">Fecha de Inicio</label>
                             <p className="text-sm flex items-center justify-center gap-2">
                                 <Calendar className="h-4 w-4 " />
-                                {new Date(project.fechaInicio).toLocaleDateString('es-ES')}
+                                {formatLocalDate(project.fechaInicio)}
                             </p>
                         </div>
 
@@ -114,7 +115,7 @@ const ProjectDetail = () => {
                             <label className="text-sm font-medium text-muted-foreground">Fecha de Término</label>
                             <p className="text-sm flex items-center justify-center gap-2">
                                 <Calendar className="h-4 w-4" />
-                                {new Date(project.fechaTermino).toLocaleDateString('es-ES')}
+                                {formatLocalDate(project.fechaTermino)}
                             </p>
                         </div>
 

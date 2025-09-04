@@ -8,6 +8,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { Button } from "../ui/button";
+import { formatLocalDate } from "@/lib/utils";
 import { useProjects } from "@/hooks/use-project";
 import { useNavigate } from "react-router-dom";
 import { Delete, Edit, FolderCheck, Plus, Shield } from "lucide-react";
@@ -222,9 +223,8 @@ const ProjectList = () => {
                             filteredProjects.map((project) => (
                                 <TableRow key={project.codigoProyecto}>
                                     <TableCell className="font-medium">{project.nombre}</TableCell>
-                                    <TableCell>{project.fechaInicio}</TableCell>
-                                    <TableCell>{project.fechaTermino}</TableCell>
-                                    {/* <TableCell>{new Date(dev.fechaContratacion).toLocaleDateString()}</TableCell> */}
+                                    <TableCell>{formatLocalDate(project.fechaInicio)}</TableCell>
+                                    <TableCell>{formatLocalDate(project.fechaTermino)}</TableCell>
                                     <TableCell>
                                         <span className={`px-2 py-1 rounded-full text-xs ${project.registroActivo
                                             ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
