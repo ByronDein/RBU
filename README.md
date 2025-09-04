@@ -21,7 +21,7 @@ Aplicación web para la gestión de desarrolladores y proyectos, construida con 
 
 1. **Clonar el repositorio**
    ```bash
-   git clone https://github.com/ByronDein/RBU.git
+   git clone https://github.com/ByronDein/RBU
    ```
 
 2. **Navegar al directorio del proyecto**
@@ -128,6 +128,7 @@ Usuario → Componente → Hook → Servicio → API
 - **Editar**: Modificación de datos existentes
 - **Eliminar**: Eliminación con confirmación
 - **Detalle**: Vista completa de información del desarrollador
+- **Asignar Proyectos**: Modal para asignar Proyectos a los  Desarrolladroes
 
 ### Proyectos
 - **Lista**: Visualización con filtros por estado y tecnología
@@ -135,6 +136,6 @@ Usuario → Componente → Hook → Servicio → API
 - **Editar**: Modificación de datos existentes
 - **Eliminar**: Eliminación con confirmación
 - **Detalle**: Vista completa de información del proyecto
-- **Asignar Desarrolladores**: Modal para asignar desarrolladores al proyecto
+
 
 ```
